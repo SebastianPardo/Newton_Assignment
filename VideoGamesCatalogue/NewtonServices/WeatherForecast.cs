@@ -1,4 +1,4 @@
-namespace VideoGamesCatalogue.Server
+namespace NewtonServices
 {
     public class WeatherForecast
     {

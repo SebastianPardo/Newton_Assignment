@@ -1,7 +1,7 @@
 <Solution>
+  <Project Path="NewtonServices/NewtonServices.csproj" Id="6116a44e-601d-4881-8573-c905ee02f2f3" />
   <Project Path="VideoGames/VideoGames.esproj">
     <Build />
     <Deploy />
   </Project>
-  <Project Path="NewtonServices/NewtonServices.csproj" />
 </Solution>
