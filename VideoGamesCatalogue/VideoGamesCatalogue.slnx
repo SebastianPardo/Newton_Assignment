@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="VideoGames/VideoGames.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="NewtonServices/NewtonServices.csproj" />
+</Solution>
