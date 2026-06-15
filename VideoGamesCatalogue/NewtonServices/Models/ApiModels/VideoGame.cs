@@ -10,14 +10,14 @@ namespace NewtonServices.Models.ApiModels
             Title = vwAllVideoGames.Title;
             Quantity = vwAllVideoGames.Quantity;
             Price = vwAllVideoGames.Price;
-            PlatformName = vwAllVideoGames.PlatformName;
-            Genre = vwAllVideoGames.GenreCode;
+            Platform = vwAllVideoGames.Platform;
+            Genre = vwAllVideoGames.Genre;
         }
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }
-        public string PlatformName { get; set; }
+        public string Platform { get; set; }
         public string Genre { get; set; }
     }
 }

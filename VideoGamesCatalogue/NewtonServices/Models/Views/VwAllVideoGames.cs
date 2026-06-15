@@ -11,7 +11,7 @@ namespace NewtonServices.Models.Views
         public string Quantity { get; set; }
         public string Price { get; set; }
         public string PlatformCode { get; set; }
-        public string PlatformName { get; set; }
+        public string Platform { get; set; }
         public string GenreCode { get; set; }
         public string Genre { get; set; }
     }
