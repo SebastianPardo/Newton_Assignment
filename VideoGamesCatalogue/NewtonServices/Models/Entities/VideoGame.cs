@@ -7,7 +7,7 @@ namespace NewtonServices.Models.Entities
     public class VideoGame
     {
         [Key]
-        public Guid Id { get; set;  } 
+        public Guid Id { get; set;  } = Guid.NewGuid();
 
         [Required]
         [StringLength(100, MinimumLength = 1)]

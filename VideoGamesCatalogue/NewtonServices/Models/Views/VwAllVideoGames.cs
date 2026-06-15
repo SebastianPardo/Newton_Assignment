@@ -8,8 +8,8 @@ namespace NewtonServices.Models.Views
         public Guid Id { get; set; }
         public bool IsAvailable { get; set; }
         public string Title { get; set; }
-        public string Quantity { get; set; }
-        public string Price { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
         public string PlatformCode { get; set; }
         public string Platform { get; set; }
         public string GenreCode { get; set; }

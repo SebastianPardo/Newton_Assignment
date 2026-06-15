@@ -5,7 +5,7 @@ using EntityVideoGame = NewtonServices.Models.Entities.VideoGame;
 
 namespace NewtonServices.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Api/[controller]")]
     [ApiController]
     public class CatalogueController : ControllerBase
     {
@@ -24,7 +24,7 @@ namespace NewtonServices.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VideoGame>>> Get()
         {
-            var videoGames = _videoGamesService.GetAllAvailables().Select(e => new VideoGame(e));
+            var videoGames = _videoGamesService.GetAllAvailables().Select(e => new VideoGame(e)).ToList();
 
             if (!videoGames.Any())
                 return NotFound();
