@@ -10,6 +10,10 @@ namespace NewtonServices.Models.EntityModels
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(6, MinimumLength = 1)]
+        public string Code { get; set; }
+
+        [Required]
         [StringLength(20, MinimumLength = 1)]
         public string Name { get; set; }
 
