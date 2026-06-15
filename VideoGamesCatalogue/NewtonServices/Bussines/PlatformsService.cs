@@ -7,7 +7,7 @@ namespace NewtonServices.Bussines
     public class PlatformsService : IPlatformsService
     {
         DataBaseContext _context;
-        PlatformsService(DataBaseContext dataBaseContext)
+        public PlatformsService(DataBaseContext dataBaseContext)
         {
             _context = dataBaseContext;
         }

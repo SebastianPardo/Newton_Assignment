@@ -8,7 +8,7 @@ namespace NewtonServices.Bussines
     public class VideoGamesService : IVideoGamesService
     {
         DataBaseContext _context;
-        VideoGamesService(DataBaseContext context)
+        public VideoGamesService(DataBaseContext context)
         {
             _context = context;
         }

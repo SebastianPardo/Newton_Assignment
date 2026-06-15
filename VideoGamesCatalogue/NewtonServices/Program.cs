@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using NewtonServices.Bussines;
+using NewtonServices.Bussines.Interfaces;
 using NewtonServices.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +18,14 @@ builder.Services.AddControllers().AddNewtonsoftJson(options => options.Serialize
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.CustomSchemaIds(type => type.FullName);
+});
+
+builder.Services.AddScoped<IVideoGamesService, VideoGamesService>();
+builder.Services.AddScoped<IPlatformsService, PlatformsService>();
+builder.Services.AddScoped<IGenresService, GenresService>();
 
 var app = builder.Build();
 

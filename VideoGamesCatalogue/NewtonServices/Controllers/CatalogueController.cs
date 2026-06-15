@@ -3,9 +3,6 @@ using NewtonServices.Bussines.Interfaces;
 using NewtonServices.Models.ApiModels;
 using EntityVideoGame = NewtonServices.Models.Entities.VideoGame;
 
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace NewtonServices.Controllers
 {
     [Route("api/[controller]")]
@@ -23,23 +20,23 @@ namespace NewtonServices.Controllers
             _genresService = genresService;
         }
 
-        // GET: api/<CatalogueController>
+        //GET: api/<CatalogueController>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VideoGame>>> Get()
         {
             var videoGames = _videoGamesService.GetAllAvailables().Select(e => new VideoGame(e));
-            
+
             if (!videoGames.Any())
                 return NotFound();
-            
+
             return Ok(videoGames);
         }
 
-        // GET api/<CatalogueController>/5
+        //// GET api/<CatalogueController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<EntityVideoGame>> Get(Guid id)
+        public ActionResult<EntityVideoGame?> GetById(Guid id)
         {
-            var videoGame = _videoGamesService.GetById(id);
+            EntityVideoGame? videoGame = _videoGamesService.GetById(id);
             if (videoGame == null)
                 return NotFound();
 

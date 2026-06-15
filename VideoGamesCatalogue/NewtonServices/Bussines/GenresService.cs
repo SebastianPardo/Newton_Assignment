@@ -7,7 +7,7 @@ namespace NewtonServices.Bussines
     public class GenresService : IGenresService
     {
         DataBaseContext _context;
-        GenresService(DataBaseContext dataBaseContext)
+        public GenresService(DataBaseContext dataBaseContext)
         {
             _context = dataBaseContext;
         }
