@@ -19,19 +19,22 @@ namespace NewtonServices.Bussines
         public IEnumerable<VwAllVideoGames> GetAllByGenre(string genreCode) => _context.VwAllVideoGames.Where(e => e.GenreCode == genreCode);
 
         public IEnumerable<VwAllVideoGames> GetAllByPlatform(string platformCode) => _context.VwAllVideoGames.Where(e => e.PlatformCode == platformCode);
-    
+
         public VideoGame? GetById(Guid id) => _context.VideoGame.SingleOrDefault(e => e.Id == id);
+
+        public bool Exists(Guid id) => _context.VideoGame.Any(e => e.Id == id);
 
         public VideoGame Add(VideoGame videoGame)
         {
             VideoGame entity = _context.VideoGame.Add(videoGame).Entity;
             _context.SaveChanges();
             return entity;
-        }    
+        }
 
         public bool Update(VideoGame videoGame)
         {
-           _context.VideoGame.Update(videoGame);
+            videoGame.DateUpdated = DateTime.Now;
+            _context.VideoGame.Update(videoGame);
             return _context.SaveChanges() > 0;
         }
 

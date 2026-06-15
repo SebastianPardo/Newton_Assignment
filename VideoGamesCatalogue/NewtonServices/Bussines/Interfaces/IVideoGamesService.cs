@@ -5,6 +5,7 @@ namespace NewtonServices.Bussines.Interfaces
 {
     public interface IVideoGamesService
     {
+        bool Exists(Guid id);
         IEnumerable<VideoGame> GetAll();
         IEnumerable<VwAllVideoGames> GetAllAvailables();
         IEnumerable<VwAllVideoGames> GetAllByGenre(string genreCode);

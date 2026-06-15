@@ -90,13 +90,15 @@ namespace NewtonServices.Controllers
         {
             if (id != videoGame.Id)
                 return BadRequest();
-            var existingVideoGame = _videoGamesService.GetById(id);
-            if (existingVideoGame == null)
+
+            if (!_videoGamesService.Exists(id))
                 return NotFound();
-            var result = _videoGamesService.Update(videoGame);
-            if (!result)
+
+            var updated = _videoGamesService.Update(videoGame);
+            if (!updated)
                 return StatusCode(500, "An error occurred while updating the video game.");
-            return Ok(result);
+
+            return Ok(updated);
         }
 
         // DELETE api/<CatalogueController>/5
