@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NewtonServices.Models.EntityModels;
+using NewtonServices.Models.Entities;
+using NewtonServices.Models.Views;
 
 namespace NewtonServices.Data
 {
@@ -14,6 +15,8 @@ namespace NewtonServices.Data
         public DbSet<Genre> Genre { get; set; }
         public DbSet<Platform> Platform { get; set; }
 
+        //Views
+        public DbSet<VwAllVideoGames> VwAllVideoGames { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Platform>().Property(e => e.Id).HasDefaultValueSql("NEWID()");
@@ -37,6 +40,10 @@ namespace NewtonServices.Data
                 .WithOne(e => e.Platform)
                 .HasForeignKey(e => e.PlatformId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<VwAllVideoGames>(vw => {
+                vw.ToView("VwAllVideoGames");
+            });
         }
     }
 }

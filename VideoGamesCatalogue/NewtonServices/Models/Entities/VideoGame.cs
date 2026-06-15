@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NewtonServices.Models.EntityModels
+namespace NewtonServices.Models.Entities
 {
     [Table("VideoGames")]
     public class VideoGame
