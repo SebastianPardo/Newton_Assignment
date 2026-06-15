@@ -1,4 +1,5 @@
-﻿using NewtonServices.Bussines.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using NewtonServices.Bussines.Interfaces;
 using NewtonServices.Data;
 using NewtonServices.Models.Entities;
 using NewtonServices.Models.Views;
@@ -16,7 +17,20 @@ namespace NewtonServices.Bussines
 
         public IEnumerable<VwAllVideoGames> GetAllAvailables() => _context.VwAllVideoGames.Where(e => e.IsAvailable);
 
-        public IEnumerable<VwAllVideoGames> GetAllByGenre(string genreCode) => _context.VwAllVideoGames.Where(e => e.GenreCode == genreCode);
+        public IEnumerable<VwAllVideoGames> GetAllByGenre(string genreCode) 
+            => _context.VideoGame.Include(v => v.Genre).Include(v => v.Platform).Where(e => e.Genre.Code == genreCode)
+            .Select(v => new VwAllVideoGames
+            {
+                Id = v.Id,
+                Title = v.Title,
+                Quantity = v.Quantity,
+                Price = v.Price,
+                IsAvailable = v.IsAvailable,
+                GenreCode = v.Genre.Code,
+                Genre = v.Genre.Name,
+                PlatformCode = v.Platform.Code,
+                Platform = v.Platform.Name
+            });
 
         public IEnumerable<VwAllVideoGames> GetAllByPlatform(string platformCode) => _context.VwAllVideoGames.Where(e => e.PlatformCode == platformCode);
 
