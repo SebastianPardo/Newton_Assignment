@@ -1,3 +1,4 @@
+using NewtonServices.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using NewtonServices.Bussines;
@@ -23,6 +24,7 @@ builder.Services.AddSwaggerGen(options =>
     options.CustomSchemaIds(type => type.FullName);
 });
 
+builder.Services.AddExceptionHandler<ErrorHandler>();
 builder.Services.AddScoped<IVideoGamesService, VideoGamesService>();
 builder.Services.AddScoped<IPlatformsService, PlatformsService>();
 builder.Services.AddScoped<IGenresService, GenresService>();
