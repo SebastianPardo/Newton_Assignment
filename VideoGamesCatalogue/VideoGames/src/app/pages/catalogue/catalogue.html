@@ -1,1 +1,38 @@
-<p>catalogue works!</p>
+<div class="container mt-4">
+  <h2>Video Game Catalogue</h2>
+
+  <div *ngIf="isLoading()" class="text-center mt-4">
+    <div class="spinner-border" role="status"></div>
+  </div>
+
+  <div *ngIf="errorMessage()" class="alert alert-danger">
+    {{ errorMessage() }}
+  </div>
+
+  <table *ngIf="!isLoading() && !errorMessage()" class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Platform</th>
+        <th>Price</th>
+        <th>Available</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games()">
+        <td>{{ game.title }}</td>
+        <td>{{ game.genre }}</td>
+        <td>{{ game.platform }}</td>
+        <td>$ {{ game.price }}</td>
+        <td>{{ game.quantity }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="goToEdit(game.id)">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
