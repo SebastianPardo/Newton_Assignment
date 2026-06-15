@@ -5,6 +5,6 @@ namespace NewtonServices.Bussines.Interfaces
     public interface IGenresService
     {
         IEnumerable<Genre> GetAll();
-        Genre? GetById (Guid id);
+        Genre? GetByCode(string code);
     }
 }

@@ -13,6 +13,6 @@ namespace NewtonServices.Bussines
         }
 
         public IEnumerable<Genre> GetAll() => _context.Genre;
-        public Genre? GetById(Guid id) => _context.Genre.FirstOrDefault(e => e.Id == id);
+        public Genre? GetByCode(string code) => _context.Genre.SingleOrDefault(e => e.Code == code);
     }
 }

@@ -12,6 +12,6 @@ namespace NewtonServices.Bussines
             _context = dataBaseContext;
         }
         public IEnumerable<Platform> GetAll() => _context.Platform;
-        public Platform? GetById(Guid id) => _context.Platform.FirstOrDefault(e => e.Id == id);
+        public Platform? GetByCode(string code) => _context.Platform.SingleOrDefault(e => e.Code == code);
     }
 }
