@@ -1,8 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { VideoGame } from '../../models/VideoGame';
 import { CatalogueServices } from '../../services/catalogue-services';
-import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-catalogue',

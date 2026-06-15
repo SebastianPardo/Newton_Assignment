@@ -1,11 +1,11 @@
 export interface EntityVideoGame {
   id: string;
   title: string;
-  Quantity: number;
+  quantity: number;
   price: number;
-  IsAvailable: boolean;
-  DateAdded: Date;
-  DateUpdated: Date;
-  GenreId: string;
-  PlatformId: string;
+  isAvailable: boolean;
+  dateAdded: Date;
+  dateUpdated: Date;
+  genreId: string;
+  platformId: string;
 }

@@ -16,7 +16,7 @@ export class CatalogueServices {
     return this.http.get<VideoGame[]>(`${this.apiUrl}`);
   }
 
-  getById(id: number): Observable<EntityVideoGame> {
+  getById(id: string): Observable<EntityVideoGame> {
     return this.http.get<EntityVideoGame>(`${this.apiUrl}/${id}`);
   }
 
@@ -28,11 +28,11 @@ export class CatalogueServices {
     return this.http.get<EntityVideoGame>(`${this.apiUrl}/GetByGenre/${code}`);
   }
 
-  update(id: number, game: EntityVideoGame): Observable<any> {
+  update(id: string, game: EntityVideoGame): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, game);
   }
 
-  delete(id: number): Observable<any> {
+  delete(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

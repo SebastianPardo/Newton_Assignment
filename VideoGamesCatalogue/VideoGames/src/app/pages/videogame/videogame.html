@@ -1,1 +1,64 @@
-<p>videogame works!</p>
+<div class="container mt-4">
+  <h2>Edit Video Game</h2>
+
+  <div *ngIf="isLoading()" class="text-center mt-4">
+    <div class="spinner-border" role="status"></div>
+  </div>
+
+  <div *ngIf="errorMessage()" class="alert alert-danger">{{ errorMessage() }}</div>
+  <div *ngIf="successMessage()" class="alert alert-success">{{ successMessage() }}</div>
+
+  <form *ngIf="!isLoading() && game()">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" class="form-control"
+             [value]="game()!.title"
+             (input)="updateField('title', $any($event.target).value)" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" class="form-control" step="0.01"
+             [value]="game()!.price"
+             (input)="updateField('price', +$any($event.target).value)" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Quantity</label>
+      <input type="number" class="form-control"
+             [value]="game()!.quantity"
+             (input)="updateField('quantity', +$any($event.target).value)" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Genre</label>
+      <select class="form-select"
+              (change)="updateField('genreId', $any($event.target).value)">
+        <option *ngFor="let g of genres()"
+                [value]="g.id"
+                [selected]="g.id === game()!.genreId">
+          {{ g.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Platform</label>
+      <select class="form-select"
+              (change)="updateField('platformId', $any($event.target).value)">
+        <option *ngFor="let p of platforms()"
+                [value]="p.id"
+                [selected]="p.id === game()!.platformId">
+          {{ p.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+      <button type="button" class="btn btn-primary" (click)="save()" [disabled]="isSaving()">
+        {{ isSaving() ? 'Saving...' : 'Save' }}
+      </button>
+    </div>
+  </form>
+</div>
