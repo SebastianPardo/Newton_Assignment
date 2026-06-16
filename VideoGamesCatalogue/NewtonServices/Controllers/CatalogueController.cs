@@ -50,7 +50,7 @@ namespace NewtonServices.Controllers
             if (platform == null)
                 return NotFound();
 
-            var videoGames = _videoGamesService.GetAllByPlatform(code).Select(e => new VideoGame(e));
+            var videoGames = _videoGamesService.GetAllByPlatform(code).Select(e => new VideoGame(e)).ToList();
 
             if (!videoGames.Any())
                 return NotFound();

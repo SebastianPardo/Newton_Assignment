@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="NewtonServices/NewtonServices.csproj" Id="6116a44e-601d-4881-8573-c905ee02f2f3" />
-  <Project Path="NewtonTest/NewtonTest.csproj" Id="e977ca79-91c7-479d-8ef0-67bc81d4f82b" />
+  <Project Path="NewtonTest/NewtonTest.csproj" Id="e977ca79-91c7-479d-8ef0-67bc81d4f82b">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
   <Project Path="VideoGames/VideoGames.esproj">
     <Build />
     <Deploy />
